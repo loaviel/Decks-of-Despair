@@ -20,4 +20,24 @@ public class PlayerStats : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + healthChange, 0, maxHealth);
         moveSpeed += speedChange;
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyStats enemyStats = collision.gameObject.GetComponent<EnemyStats>();
+
+            if (enemyStats != null)
+            {
+                currentHealth -= enemyStats.damage;
+
+                if (currentHealth <= 0)
+                {
+                    Debug.Log("Player has died!");
+                    // Add player death later
+                }
+            }
+
+        }
+    }
 }

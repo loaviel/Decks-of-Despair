@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab; // Prefab for the projectile
+  
 
     void Update()
     {
@@ -23,10 +24,10 @@ public class PlayerShooting : MonoBehaviour
         if (rb != null)
         {
             // Retrieve speed from the projectile's own ProjectileStats component
-            ProjectileStats projectileStats = projectile.GetComponent<ProjectileStats>();
-            if (projectileStats != null)
+            PlayerProjectileStats playerProjectileStats = projectile.GetComponent<PlayerProjectileStats>();
+            if (playerProjectileStats != null)
             {
-                rb.velocity = direction * projectileStats.speed;
+                rb.velocity = direction * playerProjectileStats.speed;
             }
         }
     }

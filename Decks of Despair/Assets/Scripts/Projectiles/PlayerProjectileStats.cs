@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ProjectileStats : MonoBehaviour
+public class PlayerProjectileStats : MonoBehaviour
 {
-    public int damage = 10;          // Base damage of the projectile
+    public int damage = 1;          // Base damage of the projectile
     public float speed = 10f;        // Speed at which the projectile moves
     public float range = 5f;         // Maximum range projectile can travel
 
@@ -20,6 +20,20 @@ public class ProjectileStats : MonoBehaviour
         if (Vector2.Distance(startPosition, transform.position) >= range)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            // Get the EnemyStats component on the enemy
+            var enemyStats = other.GetComponent<EnemyStats>();
+            if (enemyStats != null)
+            {
+                enemyStats.TakeDamage(damage); // Apply damage to the enemy
+            }
+            Destroy(gameObject); // Destroy the projectile after it hits the enemy
         }
     }
 }
