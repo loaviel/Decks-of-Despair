@@ -35,9 +35,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - door
+  - wall
+  - floor
   m_SortingLayers:
   - name: Default
     uniqueID: 0
