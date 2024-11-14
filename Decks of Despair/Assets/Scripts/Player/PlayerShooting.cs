@@ -2,33 +2,45 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject projectilePrefab; // Prefab for the projectile
-  
+    public GameObject projectilePrefab;  // Prefab for the projectile
+    private float nextFireTime = 0f;     // Tracks the next time the player can fire a projectile
+    private float fireRate = 0.2f;       // Time between shots
 
     void Update()
     {
-        // Shoot in specified direction when arrow keys are pressed
-        if (Input.GetKeyDown(KeyCode.UpArrow)) Shoot(Vector2.up);
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) Shoot(Vector2.down);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) Shoot(Vector2.left);
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) Shoot(Vector2.right);
+        // Only shoot if the projectile can fire 
+        if (Time.time >= nextFireTime)
+        {
+            // Shoot in the specified direction when arrow keys are pressed
+            if (Input.GetKey(KeyCode.UpArrow)) Shoot(Vector2.up);
+            else if (Input.GetKey(KeyCode.DownArrow)) Shoot(Vector2.down);
+            else if (Input.GetKey(KeyCode.LeftArrow)) Shoot(Vector2.left);
+            else if (Input.GetKey(KeyCode.RightArrow)) Shoot(Vector2.right);
+        }
     }
 
     private void Shoot(Vector2 direction)
     {
-        // Create a new projectile at the player's position
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        // Offset to avoid projectile spawning inside the player or walls
+        Vector2 spawnOffset = direction * 0.5f; 
 
-        // Apply velocity to projectile based on direction and speed
-        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        // Create a new projectile at the player's position with the offset
+        GameObject projectile = Instantiate(projectilePrefab, (Vector2)transform.position + spawnOffset, Quaternion.identity);
+
+        // Get the PlayerProjectileStats component from the instantiated projectile
+        PlayerProjectileStats stats = projectile.GetComponent<PlayerProjectileStats>();
+
+        if (stats != null)
         {
-            // Retrieve speed from the projectile's own ProjectileStats component
-            PlayerProjectileStats playerProjectileStats = projectile.GetComponent<PlayerProjectileStats>();
-            if (playerProjectileStats != null)
+            // Apply velocity using the projectile's stats
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            if (rb != null)
             {
-                rb.velocity = direction * playerProjectileStats.speed;
+                rb.velocity = direction * stats.speed;  // Set velocity based on the direction and speed
             }
+
+            // Update the next fire time based on the fire rate
+            nextFireTime = Time.time + fireRate;
         }
     }
 }

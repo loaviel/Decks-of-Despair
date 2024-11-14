@@ -7,7 +7,7 @@ public class SquareEnemyStats : EnemyStats
     void Start()
     {
        
-        // Unique stats for square enemy -- overriden from base EnemyStats
+        // Unique stats for wolf enemy -- overriden from base EnemyStats
         health = 3;
         damage = 1;
         moveSpeed = 2f;
@@ -16,7 +16,7 @@ public class SquareEnemyStats : EnemyStats
     
     protected override void Die()
     {
-        Debug.Log("Square Enemy died!");
+        Debug.Log("Wolf Enemy died!");
         base.Die();
     }
 }
