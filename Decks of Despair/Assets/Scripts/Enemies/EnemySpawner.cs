@@ -2,36 +2,49 @@ using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab; // Prefab for the enemies
-    public Transform[] spawnPoints; // Spawn points in the room
-    public int enemiesPerWave = 5; // Number of enemies per wave
-    public float timeBetweenWaves = 5f; // Time between waves
-    public float spawnDelay = 0.5f; // Delay between each enemy spawn in a wave
-    public float minSpawnDistance = 5f; // Minimum distance from the player for spawning enemies
-    public Transform player; // Reference to the player 
+    public GameObject enemyPrefab;         // Prefab for the enemies
+    public Transform[] spawnPoints;        // Spawn points in the room
+    public int enemiesPerWave = 5;         // Number of enemies per wave
+    public float timeBetweenWaves = 5f;    // Time between waves
+    public float spawnDelay = 0.5f;        // Delay between each enemy spawn in a wave
+    public float minSpawnDistance = 5f;    // Minimum distance from the player for spawning enemies
+    public int maxWave = 0;                // Initially set to 0, will be updated when stairs are triggered
+    public Transform player;               // Reference to the player 
 
+    public int currentWave = 0;            // Track the current wave number
     private bool spawning = false;
     private List<Transform> availableSpawnPoints = new List<Transform>(); // List to track available spawn points
 
     public void StartSpawning()
     {
-        if (!spawning)
+        if (!spawning && maxWave > 0)      // Only start if maxWave is greater than 0
         {
             spawning = true;
             StartCoroutine(SpawnWaves());
         }
     }
 
+    public void SetMaxWave(int newMaxWave)
+    {
+        maxWave = newMaxWave;
+    }
+
     private IEnumerator SpawnWaves()
     {
-        while (spawning)
+        while (spawning && currentWave < maxWave)
         {
+            // Increase the wave count and display it
+            currentWave++;
+            Debug.Log("Starting Wave: " + currentWave);
+
             // Reset available spawn points for each wave
             availableSpawnPoints.Clear();
-            availableSpawnPoints.AddRange(spawnPoints); // Add all spawn points initially
+            availableSpawnPoints.AddRange(spawnPoints);
 
+            // Spawn enemies for the current wave
             for (int i = 0; i < enemiesPerWave; i++)
             {
                 if (availableSpawnPoints.Count > 0)
@@ -50,6 +63,13 @@ public class EnemySpawner : MonoBehaviour
 
             // Wait before starting the next wave
             yield return new WaitForSeconds(timeBetweenWaves);
+        }
+
+        // End spawning if maxWave is reached
+        if (currentWave >= maxWave)
+        {
+            Debug.Log("All waves completed!");
+            spawning = false; // Stop spawning
         }
     }
 
@@ -89,5 +109,15 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return spawnPoint;
+    }
+
+    public int GetCurrentWave()
+    {
+        return currentWave;
+    }
+
+    public int GetMaxWave()
+    {
+        return maxWave;
     }
 }

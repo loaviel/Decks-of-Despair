@@ -4,6 +4,7 @@ public class StairsTrigger : MonoBehaviour
 {
     public GameObject tutorial; // Reference to the tutorial text object
     public EnemySpawner enemySpawner; // Reference to the enemy spawner
+    public int maxWavesAfterTrigger = 10; // Set max waves after trigger
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,10 +13,11 @@ public class StairsTrigger : MonoBehaviour
             // Hide tutorial 
             tutorial.SetActive(false);
 
-            // Start spawning enemies
+            // Set max wave and start spawning enemies
+            enemySpawner.SetMaxWave(maxWavesAfterTrigger);
             enemySpawner.StartSpawning();
 
-            // Hide the stairs -- will make it so it turns back on after every clear later -- use for lvl progression
+            // Hide the stairs -- will make it so it turns back on after every clear later -- use for lvl progression // maybe
             gameObject.SetActive(false);
         }
     }
