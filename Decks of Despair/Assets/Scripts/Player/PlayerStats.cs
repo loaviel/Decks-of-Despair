@@ -9,8 +9,10 @@ public class PlayerStats : MonoBehaviour
     public SpriteRenderer spriteRenderer;   // Reference to the SpriteRenderer component
     public HealthUI healthUI;               // Reference to the HealthUI script
     public float flashDuration = 0.2f;      // Duration for the red flash effect
+    public float damageCooldownTime = 0.5f;   // Time in seconds before player can take damage again (cooldown)
 
     private Color originalColor;            // Stores the original color
+    private float lastDamageTime = -1f;     // Time when the player last took damage
 
     void Start()
     {
@@ -31,7 +33,9 @@ public class PlayerStats : MonoBehaviour
         moveSpeed += speedChange;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+   
+
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -39,21 +43,33 @@ public class PlayerStats : MonoBehaviour
 
             if (enemyStats != null)
             {
-                currentHealth -= enemyStats.damage;
-
-                // Flash red when the player is hit
-                StartCoroutine(FlashRed());
-
-                // Update health UI after taking damage
-                healthUI.UpdateHealthUI();
-
-                if (currentHealth <= 0)
+                // Apply damage only if enough time has passed since the last damage
+                if (Time.time >= lastDamageTime + damageCooldownTime)
                 {
-                    Debug.Log("Player has died!");
-                    Destroy(gameObject);
-                    // Add player death later
+                    // Apply damage and update the last damage time
+                    ApplyDamage(enemyStats.damage);
+                    lastDamageTime = Time.time;  // Reset cooldown
                 }
             }
+        }
+    }
+
+    private void ApplyDamage(int damageAmount)
+    {
+        // Subtract damage from current health
+        currentHealth -= damageAmount;
+
+        // Flash red when the player is hit
+        StartCoroutine(FlashRed());
+
+        // Update health UI after taking damage
+        healthUI.UpdateHealthUI();
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player has died!");
+            Destroy(gameObject);
+            // Add player death later
         }
     }
 

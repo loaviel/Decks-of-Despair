@@ -8,9 +8,9 @@ public class SquareEnemyStats : EnemyStats
     {
        
         // Unique stats for square enemy -- overriden from base EnemyStats
-        health = 5;
+        health = 3;
         damage = 1;
-        moveSpeed = 1f;
+        moveSpeed = 2f;
     }
 
     
