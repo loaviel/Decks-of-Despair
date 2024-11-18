@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 
-
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;         // Prefab for the enemies
+    public GameObject enemyPrefab;         // Prefab for the regular enemies
+    public GameObject slimePrefab;         // Prefab for the slime enemy
     public Transform[] spawnPoints;        // Spawn points in the room
     public int enemiesPerWave = 5;         // Number of enemies per wave
     public float timeBetweenWaves = 5f;    // Time between waves
@@ -17,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     public int currentWave = 0;            // Track the current wave number
     private bool spawning = false;
     private List<Transform> availableSpawnPoints = new List<Transform>(); // List to track available spawn points
+
+    private int spawnCounter = 0;          // Tracks the total number of enemies spawned
 
     public void StartSpawning()
     {
@@ -78,8 +80,17 @@ public class EnemySpawner : MonoBehaviour
         // Choose a random spawn point, far enough from the player
         Transform spawnPoint = GetValidSpawnPoint();
 
-        // Instantiate the enemy at the spawn point
-        Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        if (spawnPoint != null)
+        {
+            // Increment the spawn counter
+            spawnCounter++;
+
+            // Decide whether to spawn a slime or a regular enemy
+            GameObject enemyToSpawn = (spawnCounter % 5 == 0) ? slimePrefab : enemyPrefab;
+
+            // Instantiate the selected enemy at the spawn point
+            Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+        }
     }
 
     private Transform GetValidSpawnPoint()
