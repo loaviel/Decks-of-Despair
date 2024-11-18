@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;         // Prefab for the regular enemies
+    public GameObject wolfPrefab;         // Prefab for the wolf enemies
     public GameObject slimePrefab;         // Prefab for the slime enemy
+    public GameObject ghostPrefab;         // Prefab for the ghost enemy
     public Transform[] spawnPoints;        // Spawn points in the room
     public int enemiesPerWave = 5;         // Number of enemies per wave
     public float timeBetweenWaves = 5f;    // Time between waves
@@ -85,11 +86,30 @@ public class EnemySpawner : MonoBehaviour
             // Increment the spawn counter
             spawnCounter++;
 
-            // Decide whether to spawn a slime or a regular enemy
-            GameObject enemyToSpawn = (spawnCounter % 5 == 0) ? slimePrefab : enemyPrefab;
+            // Randomly decide which enemy to spawn 
+            GameObject enemyToSpawn = GetRandomEnemy();
 
             // Instantiate the selected enemy at the spawn point
             Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+        }
+    }
+
+    private GameObject GetRandomEnemy()
+    {
+        // Randomly decide which enemy to spawn 
+        int randomChance = Random.Range(1, 11); // Generates a number between 1 and 10
+
+        if (randomChance == 1) // 1/10 chance to spawn Ghost
+        {
+            return ghostPrefab;
+        }
+        else if (randomChance == 2) // 1/10 chance to spawn Slime
+        {
+            return slimePrefab;
+        }
+        else // 8/10 chance to spawn wolf
+        {
+            return wolfPrefab;
         }
     }
 
