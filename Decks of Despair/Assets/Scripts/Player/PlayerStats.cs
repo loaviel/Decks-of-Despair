@@ -54,7 +54,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void ApplyDamage(int damageAmount)
+    public void ApplyDamage(int damageAmount)
     {
         // Subtract damage from current health
         currentHealth -= damageAmount;
