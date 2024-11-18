@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    // Reference to player stats
-    public PlayerStats stats;
-    private Vector2 movement; // Stores movement direction
+    public PlayerStats stats;           // Reference to player stats
+    private Rigidbody2D rb;             // Reference to Rigidbody2D component
+    private Vector2 movement;           // Stores movement direction
 
     void Start()
     {
-        // Get PlayerStats component attached to the player
+
         stats = GetComponent<PlayerStats>();
+        rb = GetComponent<Rigidbody2D>();
+
+
+        rb.gravityScale = 0;            // No gravity for 2D top-down movement
     }
 
     void Update()
@@ -35,7 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Move player based on speed from stats and direction
-        transform.Translate(stats.moveSpeed * Time.deltaTime * movement);
+        // Calculate velocity based on movement and stats.moveSpeed
+        Vector2 desiredVelocity = movement * stats.moveSpeed;
+
+        // Apply velocity directly for precise control
+        rb.velocity = Vector2.Lerp(rb.velocity, desiredVelocity, 0.2f);
     }
 }
