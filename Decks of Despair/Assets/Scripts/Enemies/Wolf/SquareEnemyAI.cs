@@ -13,7 +13,7 @@ public class SquareEnemyAI : MonoBehaviour
         // Get the EnemyStats component to access moveSpeed
         enemyStats = GetComponent<EnemyStats>();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     void Update()

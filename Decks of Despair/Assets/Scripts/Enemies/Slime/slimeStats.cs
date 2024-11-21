@@ -7,6 +7,7 @@ public class SlimeStats : EnemyStats
 
     new void Start()
     {
+        base.Start();
      // Unique stats for slime enemy -- overriden from base EnemyStats
      health = 4;
      damage = 1;

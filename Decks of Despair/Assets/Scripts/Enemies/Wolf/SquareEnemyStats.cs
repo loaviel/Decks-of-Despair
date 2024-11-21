@@ -6,6 +6,7 @@ public class SquareEnemyStats : EnemyStats
 {
     new void Start()
     {
+        base.Start();
        
         // Unique stats for wolf enemy -- overriden from base EnemyStats
         health = 3;
