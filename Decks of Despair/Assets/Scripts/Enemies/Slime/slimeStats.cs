@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlimeStats : EnemyStats
 {
 
-    void Start()
+    new void Start()
     {
      // Unique stats for slime enemy -- overriden from base EnemyStats
      health = 4;

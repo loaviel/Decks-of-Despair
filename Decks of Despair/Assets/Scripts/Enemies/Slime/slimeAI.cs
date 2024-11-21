@@ -29,6 +29,7 @@ public class SlimeAI : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
         rb = GetComponent<Rigidbody2D>();
         slimeCollider = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,6 +39,9 @@ public class SlimeAI : MonoBehaviour
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rb.velocity = direction * enemyStats.moveSpeed;
+
+            // Call FacePlayer() to ensure the enemy faces the player
+            FacePlayer();
         }
 
         // Check if the player is within detection radius and if the slime can jump
@@ -51,6 +55,7 @@ public class SlimeAI : MonoBehaviour
             }
         }
     }
+
 
     private IEnumerator JumpAndSlam()
     {
@@ -127,5 +132,27 @@ public class SlimeAI : MonoBehaviour
         }
     }
 
-    
+    // Method to make the enemy face the player
+    private SpriteRenderer spriteRenderer; // The sprite renderer to flip
+    public void FacePlayer()
+    {
+        if (player == null || spriteRenderer == null) return;
+
+        // Check if the player is to the left or right of the enemy
+        float directionToPlayer = player.position.x - transform.position.x;
+
+        // Flip the sprite horizontally depending on player position
+        if (directionToPlayer > 0)  // Player is to the right
+        {
+            spriteRenderer.flipX = false; // Facing right
+        }
+        else if (directionToPlayer < 0) // Player is to the left
+        {
+            spriteRenderer.flipX = true; // Facing left
+        }
+    }
+
+
+
+
 }

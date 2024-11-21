@@ -23,6 +23,8 @@ public class GhostAI : MonoBehaviour
         {
             player = playerObject.transform;
         }
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -31,11 +33,14 @@ public class GhostAI : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // Move toward the player if not too close
+        // Move towards the player if not too close
         if (distanceToPlayer > stopDistance && !isTeleporting)
         {
             MoveTowardsPlayer();
         }
+
+        // Call FacePlayer() to make sure the enemy faces the player
+        FacePlayer();
 
         // Handle teleport and shooting logic
         if (distanceToPlayer <= detectionRadius && canTeleport)
@@ -43,6 +48,7 @@ public class GhostAI : MonoBehaviour
             StartCoroutine(TeleportAndShoot());
         }
     }
+
 
     private void MoveTowardsPlayer()
     {
@@ -115,6 +121,26 @@ public class GhostAI : MonoBehaviour
         if (projectileStats != null && player != null)
         {
             projectileStats.Initialize(player.position); // Pass player's position for movement direction
+        }
+    }
+
+    // Method to make the enemy face the player
+    private SpriteRenderer spriteRenderer; // The sprite renderer to flip
+    public void FacePlayer()
+    {
+        if (player == null || spriteRenderer == null) return;
+
+        // Check if the player is to the left or right of the enemy
+        float directionToPlayer = player.position.x - transform.position.x;
+
+        // Flip the sprite horizontally depending on player position
+        if (directionToPlayer > 0)  // Player is to the right
+        {
+            spriteRenderer.flipX = false; // Facing right
+        }
+        else if (directionToPlayer < 0) // Player is to the left
+        {
+            spriteRenderer.flipX = true; // Facing left
         }
     }
 }

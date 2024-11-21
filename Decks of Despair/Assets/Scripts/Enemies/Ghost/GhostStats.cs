@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostStats : EnemyStats
 {
-    void Start()
+    new void Start()
     {
         // Unique stats for ghost enemy -- overridden from base EnemyStats
         health = 3;            

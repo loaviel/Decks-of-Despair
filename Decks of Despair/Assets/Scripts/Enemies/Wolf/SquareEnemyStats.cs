@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SquareEnemyStats : EnemyStats
 {
-    void Start()
+    new void Start()
     {
        
         // Unique stats for wolf enemy -- overriden from base EnemyStats
