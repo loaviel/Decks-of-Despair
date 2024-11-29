@@ -14,6 +14,9 @@ public class EnemyStats : MonoBehaviour
     private Transform player; // Reference to the player's transform
     private SpriteRenderer spriteRenderer;
 
+    public delegate void EnemyDeathHandler();
+    public event EnemyDeathHandler OnDeath;  // Event to be triggered on death
+
     protected virtual void Start()
     {
         // Locate the player using the "Player" tag
@@ -59,6 +62,9 @@ public class EnemyStats : MonoBehaviour
     {
         // Flash red when the enemy is hit
         StartCoroutine(FlashRed());
+
+        OnDeath?.Invoke();
+
         Destroy(gameObject); // Destroys the enemy GameObject
     }
 
