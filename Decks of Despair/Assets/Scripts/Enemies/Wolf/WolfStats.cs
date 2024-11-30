@@ -14,10 +14,12 @@ public class SquareEnemyStats : EnemyStats
         moveSpeed = 2f;
     }
 
-    
+
     protected override void Die()
     {
-        Debug.Log("Wolf Enemy died!");
+        // Play the relevant death noise
+        audioManager.WolfPlay();
+
         base.Die();
     }
 }

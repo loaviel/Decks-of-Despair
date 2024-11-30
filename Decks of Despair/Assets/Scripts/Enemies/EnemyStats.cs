@@ -7,7 +7,6 @@ public class EnemyStats : MonoBehaviour
     public int damage;    // Default damage for all enemies
     public float moveSpeed; // Default speed for all enemies
 
-
     public float flashDuration = 0.2f;      // Duration for the red flash effect
     private Color originalColor;
 
@@ -17,11 +16,15 @@ public class EnemyStats : MonoBehaviour
     public delegate void EnemyDeathHandler();
     public event EnemyDeathHandler OnDeath;  // Event to be triggered on death
 
+    public GameAudioManager audioManager;
+
     protected virtual void Start()
     {
         // Locate the player using the "Player" tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        // Locate GameAudioManager using "Audio" tag
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<GameAudioManager>();  
 
         // Get the SpriteRenderer component
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();

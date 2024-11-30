@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostStats : EnemyStats
-{
+{ 
+    
     new void Start()
     {
         base.Start();
@@ -11,5 +12,13 @@ public class GhostStats : EnemyStats
         health = 3;            
         damage = 1;             
         moveSpeed = 3f;         
+    }
+
+    protected override void Die()
+    {
+        // Play the relevant death noise
+        audioManager.GhostPlay();                
+         
+        base.Die();
     }
 }
