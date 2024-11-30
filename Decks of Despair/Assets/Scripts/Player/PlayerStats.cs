@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -67,9 +68,11 @@ public class PlayerStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Player has died!");
+            // Loads the game over sceen once the player is dead
+            SceneManager.LoadScene("GameOver");
+
+            // Destroys the game object
             Destroy(gameObject);
-            // Add player death later
         }
     }
 

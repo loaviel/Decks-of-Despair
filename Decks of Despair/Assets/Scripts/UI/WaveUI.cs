@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class WaveUI : MonoBehaviour
 {
     public EnemySpawner waveSpawner;         // Reference to the EnemySpawner script
@@ -27,6 +28,10 @@ public class WaveUI : MonoBehaviour
         // Set the images for current wave
         currentWave1.sprite = numberSprites[currentWaveTens];
         currentWave2.sprite = numberSprites[currentWaveOnes];
+
+        // Update the player wave holder
+
+        PlayerWave.SetPlayerScore(currentWave1, currentWave2);
 
         // Only update max wave display if maxWaveValue is greater than 0
         if (maxWaveValue > 0)
