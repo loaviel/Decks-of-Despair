@@ -81,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             // Wait for all enemies to be killed before showing the card selection popup
-            yield return new WaitUntil(() => remainingEnemies == 0);
+            yield return new WaitUntil(() => remainingEnemies <= 0);
 
             // Proceed with card selection once all enemies are killed
             ShowCardSelectionPopup();

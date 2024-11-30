@@ -23,24 +23,40 @@ public class PlayerStats : MonoBehaviour
         // Initialize current health to max health at start
         currentHealth = maxHealth;
 
-        healthUI.UpdateHealthUI();          // Initialize health UI
+        // Initialize health UI
+        healthUI.UpdateHealthUI();   
 
         // Get the SpriteRenderer component and save the original color
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        // Call reset method
+        ResetStats();
+    }
+
+    public void ResetStats()
+    {
+        // Reset values to defaults 
+        moveSpeed = 10f; 
+        projectileStats.range = 5f;
+        projectileStats.speed = 10f;
     }
 
     public void ApplyCardEffect(float speedChange, float fireRateChange, float rangeChange, float shotSpeedChange)
     {
-        // Modify stat changes
+        // Modify stat changes to player
        
         moveSpeed += speedChange;
-        
-        projectileStats.fireRate += fireRateChange;
+
+        // Modify stat changes tot projectiles
 
         projectileStats.range += rangeChange;
-
         projectileStats.speed += shotSpeedChange;
+
+        // Modify stat changes to player shooting
+
+        playerShooting.fireRate -= fireRateChange;
+
 
     }
 

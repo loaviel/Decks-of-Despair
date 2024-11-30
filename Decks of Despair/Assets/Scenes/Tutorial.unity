@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7129854010813905328, guid: 0d4b980a631252349b70c28e5966b74d, type: 3}
-  fireRate: 0.2
+  fireRate: 0.4
 --- !u!82 &239699375
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2286,6 +2286,7 @@ MonoBehaviour:
   - {fileID: 21301148, guid: 388e8eb6de557964999d88f8d42114db, type: 3}
   - {fileID: 21301150, guid: 388e8eb6de557964999d88f8d42114db, type: 3}
   - {fileID: 21301152, guid: 388e8eb6de557964999d88f8d42114db, type: 3}
+  playerStats: {fileID: 239699373}
 --- !u!1 &886892025
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class WaveUI : MonoBehaviour
 {
-    public EnemySpawner waveSpawner;         // Reference to the EnemySpawner script
-    public Image currentWave1;               // Image for the first digit of current wave
-    public Image currentWave2;               // Image for the second digit of current wave
-    public Image maxWave1;                   // Image for the first digit of max wave
-    public Image maxWave2;                   // Image for the second digit of max wave
-    public Sprite[] numberSprites;           // Array of sprites for numbers 0-9
-
+    public EnemySpawner waveSpawner;                    // Reference to the EnemySpawner script
+    public Image currentWave1;                          // Image for the first digit of current wave
+    public Image currentWave2;                          // Image for the second digit of current wave
+    public Image maxWave1;                              // Image for the first digit of max wave
+    public Image maxWave2;                              // Image for the second digit of max wave
+    public Sprite[] numberSprites;                      // Array of sprites for numbers 0-9
+    [SerializeField] private PlayerStats playerStats;   // Reference to player stats
+ 
     private void Update()
     {
         UpdateWaveDisplay();
@@ -49,6 +50,9 @@ public class WaveUI : MonoBehaviour
             // Set max wave display to "00" if maxWave is 0
             maxWave1.sprite = numberSprites[0];
             maxWave2.sprite = numberSprites[0];
+
+            // Reset projectile and player stat changes
+            playerStats.ResetStats();
         }
     }
 

@@ -5,8 +5,6 @@ public class PlayerProjectileStats : MonoBehaviour
     public int damage = 1;          // Base damage of the projectile
     public float speed = 10f;       // Speed at which the projectile moves
     public float range = 5f;        // Maximum range the projectile can travel
-    public float fireRate = 0.2f;   // Time between shots in seconds 
-    public float nextFireTime = 0f; // Tracks when the player can shoot next
 
     private Vector2 startPosition;  // Starting position of the projectile
 
