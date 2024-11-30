@@ -121,7 +121,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Reset for the next wave
         remainingEnemies = enemiesPerWave;
-        currentWave++; // Increment wave number after card selection
+       
 
         // Proceed to spawn the next wave
         StartSpawning();
