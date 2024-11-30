@@ -12,6 +12,8 @@ public class CardSelectionManager : MonoBehaviour
     public EnemySpawner enemySpawner;
     public PlayerStats playerStats;
     public PlayerMovement playerMovement;
+   
+
 
     private List<Card> availableCards = new List<Card>(); // Pool of cards
     private bool hasSelectedCards = false; // Flag to track if cards have been selected
@@ -31,7 +33,9 @@ public class CardSelectionManager : MonoBehaviour
     {
         Debug.Log("Showing card selection UI.");
         cardSelectionUI.SetActive(true);  // Show the card selection UI
+       
         playerMovement.enabled = false;  // Disable player movement while selecting cards
+        
         Debug.Log("Card selection UI is now active.");
 
         // Make sure all buttons are active
@@ -78,7 +82,7 @@ public class CardSelectionManager : MonoBehaviour
     public void SelectCard(Card selectedCard)
     {
         // Apply the card's effect to the player
-        playerStats.ApplyCardEffect(selectedCard.healthBonus, selectedCard.speedBonus);
+        playerStats.ApplyCardEffect(selectedCard.speedBonus, selectedCard.fireRateBonus, selectedCard.rangeBonus ,selectedCard.shotSpeedBonus);
 
         // Set the selected card flag to true
         hasSelectedCards = true;
@@ -88,6 +92,7 @@ public class CardSelectionManager : MonoBehaviour
 
         // Enable player movement after card selection
         playerMovement.enabled = true;
+       
 
         // Call the method to mark the card as selected and stop the popup UI
         enemySpawner.OnCardSelected();  // Trigger the enemy spawner to continue
@@ -113,7 +118,6 @@ public class CardSelectionManager : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, availableCards.Count);
                 randomCards.Add(availableCards[randomIndex]);
-                availableCards.RemoveAt(randomIndex); // Remove to prevent duplicate cards
             }
         }
         return randomCards;
