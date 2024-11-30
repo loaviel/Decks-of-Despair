@@ -4,7 +4,7 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;  // Prefab for the projectile
     private float nextFireTime = 0f;     // Tracks the next time the player can fire a projectile
-    private float fireRate = 0.2f;       // Time between shots
+    public float fireRate = 0.2f;       // Time between shots
 
     void Update()
     {

@@ -15,6 +15,9 @@ public class PlayerStats : MonoBehaviour
     private Color originalColor;            // Stores the original color
     private float lastDamageTime = -1f;     // Time when the player last took damage
 
+    public PlayerShooting playerShooting;
+    public PlayerProjectileStats projectileStats;
+
     void Start()
     {
         // Initialize current health to max health at start
@@ -27,11 +30,18 @@ public class PlayerStats : MonoBehaviour
         originalColor = spriteRenderer.color;
     }
 
-    public void ApplyCardEffect(int healthChange, float speedChange)
+    public void ApplyCardEffect(float speedChange, float fireRateChange, float rangeChange, float shotSpeedChange)
     {
-        // Modify health within bounds and apply speed change
-        currentHealth = Mathf.Clamp(currentHealth + healthChange, 0, maxHealth);
+        // Modify stat changes
+       
         moveSpeed += speedChange;
+        
+        projectileStats.fireRate += fireRateChange;
+
+        projectileStats.range += rangeChange;
+
+        projectileStats.speed += shotSpeedChange;
+
     }
 
    
@@ -47,6 +57,7 @@ public class PlayerStats : MonoBehaviour
                 // Apply damage only if enough time has passed since the last damage
                 if (Time.time >= lastDamageTime + damageCooldownTime)
                 {
+                    GetComponent<AudioSource>().Play();
                     // Apply damage and update the last damage time
                     ApplyDamage(enemyStats.damage);
                     lastDamageTime = Time.time;  // Reset cooldown
