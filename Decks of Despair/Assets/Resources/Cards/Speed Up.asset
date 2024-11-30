@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5c754b0e2192c49a80759f130eb00a, type: 3}
   m_Name: Speed Up
   m_EditorClassIdentifier: 
-  cardName: Speed Up!
-  description: Increase Speed
+  cardName: Speed+
+  description: Increase Player Speed
   cardImage: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   speedBonus: 1
   fireRateBonus: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5c754b0e2192c49a80759f130eb00a, type: 3}
   m_Name: Range Up
   m_EditorClassIdentifier: 
-  cardName: Range Up!
+  cardName: Range+
   description: Increase Range
   cardImage: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
   speedBonus: 0

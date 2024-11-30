@@ -34,9 +34,8 @@ public class CardSelectionManager : MonoBehaviour
         Debug.Log("Showing card selection UI.");
         cardSelectionUI.SetActive(true);  // Show the card selection UI
        
+        playerMovement.StopAllMovement(); // Stops the current player movement
         playerMovement.enabled = false;  // Disable player movement while selecting cards
-        
-        Debug.Log("Card selection UI is now active.");
 
         // Make sure all buttons are active
         foreach (GameObject btn in cardButtons)
@@ -55,12 +54,16 @@ public class CardSelectionManager : MonoBehaviour
                 Card card = randomCards[i];
                 cardButtons[i].SetActive(true); // Ensure the button is active
 
-                // Update text and image
-                TextMeshProUGUI tmpText = cardButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+                // Gather text components
+                TextMeshProUGUI[] texts = cardButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
+
+                // update button with card information
+
                 Image btnImage = cardButtons[i].GetComponentInChildren<Image>();
-                if (tmpText != null)
+                if (texts[0].text != null)
                 {
-                    tmpText.text = card.cardName + "\n" + card.description;
+                    texts[0].text = card.name;
+                    texts[1].text = card.description;
                 }
                 if (btnImage != null && card.cardImage != null)
                 {

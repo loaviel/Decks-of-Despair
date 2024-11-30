@@ -11,12 +11,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
         stats = GetComponent<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
 
-
         rb.gravityScale = 0;            // No gravity for 2D top-down movement
+    }
+
+    public void StopAllMovement()
+    { 
+        rb.velocity = Vector2.zero;
     }
 
     void Update()

@@ -13,8 +13,6 @@ public class EnemySpawner : MonoBehaviour
     public int maxWave = 0;                // Initially set to 0, will be updated when waves are triggered
     public Transform player;               // Reference to the player
 
-
-
     public int currentWave = 0;            // Track the current wave number
     private bool spawning = false;
     private List<Transform> availableSpawnPoints = new List<Transform>(); // List to track available spawn points
