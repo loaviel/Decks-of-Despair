@@ -7,6 +7,8 @@ public class StairsTrigger : MonoBehaviour
     public int maxWavesAfterTrigger = 10; // Set max waves after trigger
     public FloorGenerator floorGenerator; // Reference to floor generator
 
+    [SerializeField] private GameObject musicManager; // Reference to music generator 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -23,6 +25,12 @@ public class StairsTrigger : MonoBehaviour
 
             // Hide the stairs -- will make it so it turns back on after every clear later -- use for lvl progression // maybe
             gameObject.SetActive(false);
+
+            // Play battle music.
+            foreach(AudioSource music in musicManager.GetComponents<AudioSource>())
+            {
+                music.Play();
+            }
         }
     }
 }

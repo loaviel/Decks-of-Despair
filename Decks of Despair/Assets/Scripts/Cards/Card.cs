@@ -5,11 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 public class Card : ScriptableObject
 {
-    public string cardName;
-    public string description;
     public Sprite cardImage;
     public float speedBonus;
     public float fireRateBonus;
     public float rangeBonus;
     public float shotSpeedBonus;
 }
+                              

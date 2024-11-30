@@ -54,17 +54,10 @@ public class CardSelectionManager : MonoBehaviour
                 Card card = randomCards[i];
                 cardButtons[i].SetActive(true); // Ensure the button is active
 
-                // Gather text components
-                TextMeshProUGUI[] texts = cardButtons[i].GetComponentsInChildren<TextMeshProUGUI>();
-
                 // update button with card information
 
                 Image btnImage = cardButtons[i].GetComponentInChildren<Image>();
-                if (texts[0].text != null)
-                {
-                    texts[0].text = card.name;
-                    texts[1].text = card.description;
-                }
+            
                 if (btnImage != null && card.cardImage != null)
                 {
                     btnImage.sprite = card.cardImage; // Set the card's image
