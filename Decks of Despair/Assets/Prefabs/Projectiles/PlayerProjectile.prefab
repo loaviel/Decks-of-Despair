@@ -164,5 +164,3 @@ MonoBehaviour:
   damage: 1
   speed: 10
   range: 5
-  fireRate: 0.2
-  nextFireTime: 1
