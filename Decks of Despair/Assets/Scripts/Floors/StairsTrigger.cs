@@ -4,7 +4,7 @@ public class StairsTrigger : MonoBehaviour
 {
     public GameObject tutorial; // Reference to the tutorial text object
     public EnemySpawner enemySpawner; // Reference to the enemy spawner
-    public int maxWavesAfterTrigger = 10; // Set max waves after trigger
+    public int maxWavesAfterTrigger = 99; // Set max waves after trigger
     public FloorGenerator floorGenerator; // Reference to floor generator
 
     [SerializeField] private GameObject musicManager; // Reference to music generator 
