@@ -28,8 +28,16 @@
 
 
 **Designs**
+We created the basic level, character, enemy and UI designs on paper, before actually creating them on draw.io and finally in Unity.
+
 
 **Testing**
 
 **Evaluation**
 
+* Our game is 2D as required.
+* We have a minimum of 1 level, with over 99 different waves that have random enemies and card upgrades each time.
+* The level is updated every certain amount of waves, slightly changing the level design.
+* The player has attributes such as health, movement speed, shot speed, damage, firerate and range which can increase and decrease.
+* The player can select "cards" that are the items in our game, they can be used to increase the player's stats and give them abilities.
+* There are 3 different types of enemies that can defeat the player - wolf, slime and ghost.
