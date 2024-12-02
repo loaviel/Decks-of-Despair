@@ -33,6 +33,16 @@ We created the basic level, character, enemy and UI designs on paper, before act
 
 **Testing**
 
+Debug logs of our enemy spawner script below, we had various issues such as:
+* wave counter not increasing.
+* wave counter increasing incorrectly.
+* spawn points not working.
+* enemies not spawning.
+* remaining enemies going negative / not decreasing properly.
+![image](https://github.com/user-attachments/assets/85d2a090-7b30-44dd-aedb-1a55b66283c4)
+![image](https://github.com/user-attachments/assets/c719ef0f-befd-43ac-8dff-47ad1feb6391)
+These debug logs were used to deal with the above issues.
+
 **Evaluation**
 
 * Our game is 2D as required.
