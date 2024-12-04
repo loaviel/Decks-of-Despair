@@ -8,6 +8,10 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
+
+        if (CardSelectionManager.isInputLocked) return; // Prevent shooting when input is locked
+
+            
         // Only shoot if the projectile can fire 
         if (Time.time >= nextFireTime)
         {

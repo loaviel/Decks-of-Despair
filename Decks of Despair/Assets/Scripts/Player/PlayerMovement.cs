@@ -24,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (CardSelectionManager.isInputLocked)
+        {
+            movement = Vector2.zero; // Prevent movement when input is locked
+            return;
+        }
+
         // Reset movement direction
         movement = Vector2.zero;
 

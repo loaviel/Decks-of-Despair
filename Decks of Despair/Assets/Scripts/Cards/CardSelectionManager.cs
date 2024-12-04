@@ -11,12 +11,13 @@ public class CardSelectionManager : MonoBehaviour
 
     public EnemySpawner enemySpawner;
     public PlayerStats playerStats;
-    public PlayerMovement playerMovement;
    
 
 
     private List<Card> availableCards = new List<Card>(); // Pool of cards
     private bool hasSelectedCards = false; // Flag to track if cards have been selected
+
+    public static bool isInputLocked = false; // Global input lock flag
 
     void Start()
     {
@@ -34,8 +35,8 @@ public class CardSelectionManager : MonoBehaviour
         Debug.Log("Showing card selection UI.");
         cardSelectionUI.SetActive(true);  // Show the card selection UI
        
-        playerMovement.StopAllMovement(); // Stops the current player movement
-        playerMovement.enabled = false;  // Disable player movement while selecting cards
+  
+        isInputLocked = true; // Disable all player input
 
         // Make sure all buttons are active
         foreach (GameObject btn in cardButtons)
@@ -86,9 +87,8 @@ public class CardSelectionManager : MonoBehaviour
         // Hide the UI after selecting a card
         cardSelectionUI.SetActive(false);
 
-        // Enable player movement after card selection
-        playerMovement.enabled = true;
-       
+        isInputLocked = false; // Re-enable input
+
 
         // Call the method to mark the card as selected and stop the popup UI
         enemySpawner.OnCardSelected();  // Trigger the enemy spawner to continue
