@@ -145,6 +145,7 @@ MonoBehaviour:
   moveSpeed: 0
   flashDuration: 0.2
   audioManager: {fileID: 0}
+  damageParticles: {fileID: 966537472993414122, guid: 2d4af66e258253640b9b2950505fc644, type: 3}
 --- !u!70 &89581848744230059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

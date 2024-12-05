@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostStats : EnemyStats
-{ 
-    
+{
+    [SerializeField] private ParticleSystem damageParticles;
+    private ParticleSystem damageParticlesInstantiated;
     new void Start()
     {
         base.Start();
@@ -14,6 +15,12 @@ public class GhostStats : EnemyStats
         moveSpeed = 3f;         
     }
 
+    public override void TakeDamage(int amount)
+    {
+        base.TakeDamage(amount);
+        SpawnDamageParticles();
+    }
+
     protected override void Die()
     {
         // Play the relevant death noise
@@ -21,4 +28,10 @@ public class GhostStats : EnemyStats
          
         base.Die();
     }
+
+    private void SpawnDamageParticles()
+    {
+        damageParticles = Instantiate(damageParticles, transform.position, Quaternion.identity);
+    }
+
 }

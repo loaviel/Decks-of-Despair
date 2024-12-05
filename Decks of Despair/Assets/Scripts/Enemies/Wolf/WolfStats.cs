@@ -7,6 +7,11 @@ using UnityEngine.EventSystems;
 public class SquareEnemyStats : EnemyStats
 {
 
+    [SerializeField] private ParticleSystem damageParticles;
+    private ParticleSystem damageParticlesInstantiated;
+
+
+
     // public Animation animation;
     new void Start()
     {
@@ -20,6 +25,11 @@ public class SquareEnemyStats : EnemyStats
         moveSpeed = 2f;
     }
 
+    public override void TakeDamage(int amount)
+    {
+        base.TakeDamage(amount);
+        SpawnDamageParticles();
+    }
 
     protected override void Die()
     {
@@ -28,5 +38,10 @@ public class SquareEnemyStats : EnemyStats
 
         base.Die();
 
+    }
+
+    private void SpawnDamageParticles()
+    {
+        damageParticles = Instantiate(damageParticles, transform.position, Quaternion.identity);
     }
 }

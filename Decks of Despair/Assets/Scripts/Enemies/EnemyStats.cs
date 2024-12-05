@@ -55,7 +55,7 @@ public class EnemyStats : MonoBehaviour
 
 
     // Method to handle taking damage
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         if (health != 1)
         {

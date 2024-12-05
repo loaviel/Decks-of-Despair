@@ -5,9 +5,13 @@ public class SquareEnemyAI : MonoBehaviour
     private Transform player;       // Reference to the player's transform
     private EnemyStats enemyStats;  // Reference to the enemy's stats
     private CapsuleCollider2D collider; // Reference to the collider
+    private SpriteRenderer spriteRenderer; // Reference to the sprite renderer
 
     void Start()
     {
+        // Initialize the spriteRenderer
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         // Locate the player using the "Player" tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -17,6 +21,7 @@ public class SquareEnemyAI : MonoBehaviour
         // Get a collider reference
         collider = GetComponent<CapsuleCollider2D>();
     }
+
 
     void Update()
     {
@@ -35,7 +40,7 @@ public class SquareEnemyAI : MonoBehaviour
     }
 
     // Method to make the enemy face the player
-    private SpriteRenderer spriteRenderer; // The sprite renderer to flip
+    
     public void FacePlayer()
     {
         if (player == null || spriteRenderer == null) return;

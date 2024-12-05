@@ -941,67 +941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showCursor: 0
---- !u!1001 &265532729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7092262424124728790, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243245793373749128, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_Name
-      value: Wolf Death Animation
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574444413684755735, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1a830fd661b849648b763cc2bb22cb2e, type: 3}
 --- !u!1 &295610512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,6 +2818,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024042252}
   m_CullTransparentMesh: 1
+--- !u!1 &1113175377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113175378}
+  m_Layer: 0
+  m_Name: Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1113175378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113175377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.44267, y: 34.097553, z: -1.1688206}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1123388293
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,120 +3563,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939577239}
   m_CullTransparentMesh: 1
---- !u!1001 &4791649934680675364
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 856517099931754551, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_Name
-      value: Ghost Death Animation
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575388157446294213, guid: 933956146c643e9449f6e589e261c74e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 933956146c643e9449f6e589e261c74e, type: 3}
---- !u!1001 &7922701696527560369
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5889900682321707158, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095225033139343486, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
-      propertyPath: m_Name
-      value: Slime Death Animation
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9da33dd486e68e54d8609f4c3f195c76, type: 3}
 --- !u!1001 &8247317570315128050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3792,6 +3648,4 @@ SceneRoots:
   - {fileID: 1833844773}
   - {fileID: 839358164}
   - {fileID: 484216003}
-  - {fileID: 4791649934680675364}
-  - {fileID: 7922701696527560369}
-  - {fileID: 265532729}
+  - {fileID: 1113175378}

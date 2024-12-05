@@ -186,6 +186,7 @@ MonoBehaviour:
   moveSpeed: 0
   flashDuration: 0.2
   audioManager: {fileID: 0}
+  damageParticles: {fileID: 7468286689006246901, guid: 2b0655aa02e15a546a4f2e832e22fadb, type: 3}
 --- !u!95 &7654037882001342183
 Animator:
   serializedVersion: 5
