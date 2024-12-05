@@ -19,9 +19,13 @@ public class MenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-    public void Options()
+
+    public void Credits()
     {
-        // Add Options Menu Screen Code Here.
+        // Loads the creditrs scene.
+
+        SceneManager.LoadScene("Credits");
+
     }
 
     public void Menu()
