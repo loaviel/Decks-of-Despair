@@ -18,17 +18,17 @@ public class CardSelectionController : MonoBehaviour
         if (!CardSelectionManager.isInputLocked) return; // Only allow selection during input lock
 
         // Navigate cards with left/right arrow keys
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             Navigate(1); // Move to the next card
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             Navigate(-1); // Move to the previous card
         }
 
         // Select the current card with spacebar
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             SelectCard();
         }
