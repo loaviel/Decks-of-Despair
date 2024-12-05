@@ -1,4 +1,6 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -17,9 +19,11 @@ public class EnemyStats : MonoBehaviour
     public event EnemyDeathHandler OnDeath;  // Event to be triggered on death
 
     public GameAudioManager audioManager;
+    private Animator anim; 
 
     protected virtual void Start()
     {
+
         // Locate the player using the "Player" tag
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -28,6 +32,8 @@ public class EnemyStats : MonoBehaviour
 
         // Get the SpriteRenderer component
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        anim = GetComponent<Animator>();
 
         // Log if spriteRenderer is null or not
         if (spriteRenderer == null)
@@ -66,11 +72,31 @@ public class EnemyStats : MonoBehaviour
         // Flash red when the enemy is hit
         StartCoroutine(FlashRed());
 
+        if (anim != null)
+        {
+            anim.SetBool("Dying", true);
+
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+
+            Invoke("DestroyObject", 45f);
+        }
+        else
+        {
+            Destroy(gameObject); // Destroys the enemy GameObject
+        }
+
         OnDeath?.Invoke();
 
-        Destroy(gameObject); // Destroys the enemy GameObject
+        
+        
     }
 
+    private void DestoryObject()
+    {
+        Destroy(gameObject); // Destroys the enemy GameObject
+    }
 
     private IEnumerator FlashRed()
     {

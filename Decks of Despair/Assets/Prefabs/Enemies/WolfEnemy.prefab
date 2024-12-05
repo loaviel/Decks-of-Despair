@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5874995868550409865}
   - component: {fileID: 225984307581767816}
   - component: {fileID: 89581848744230059}
+  - component: {fileID: 4473036518830436700}
   m_Layer: 0
   m_Name: WolfEnemy
   m_TagString: Enemy
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.25, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -179,3 +180,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.10503125, y: 0.5116782}
   m_Size: {x: 0.7756648, y: 1.1483564}
   m_Direction: 0
+--- !u!95 &4473036518830436700
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973553034942071327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3031ebbcd123ac14e96e03b008abb9ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

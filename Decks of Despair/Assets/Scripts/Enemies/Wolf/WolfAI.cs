@@ -4,6 +4,7 @@ public class SquareEnemyAI : MonoBehaviour
 {
     private Transform player;       // Reference to the player's transform
     private EnemyStats enemyStats;  // Reference to the enemy's stats
+    private CapsuleCollider2D collider; // Reference to the collider
 
     void Start()
     {
@@ -13,13 +14,14 @@ public class SquareEnemyAI : MonoBehaviour
         // Get the EnemyStats component to access moveSpeed
         enemyStats = GetComponent<EnemyStats>();
 
-        
+        // Get a collider reference
+        collider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
     {
         // Ensure the player exists before trying to move towards them
-        if (player != null && enemyStats != null)
+        if (player != null && enemyStats != null && collider.enabled == true)
         {
             // Calculate the direction towards the player and normalize it
             Vector2 direction = (player.position - transform.position).normalized;
