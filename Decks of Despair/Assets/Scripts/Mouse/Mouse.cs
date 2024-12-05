@@ -13,7 +13,7 @@ public class Mouse : MonoBehaviour
         // Set cursor visibility
         Cursor.visible = showCursor;
     }
-
+        
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
