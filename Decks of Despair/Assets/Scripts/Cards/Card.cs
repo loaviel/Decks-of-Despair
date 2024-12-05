@@ -10,5 +10,7 @@ public class Card : ScriptableObject
     public float fireRateBonus;
     public float rangeBonus;
     public float shotSpeedBonus;
+    public int healthBonus;
+
 }
                               

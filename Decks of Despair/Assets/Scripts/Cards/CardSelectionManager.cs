@@ -79,7 +79,7 @@ public class CardSelectionManager : MonoBehaviour
     public void SelectCard(Card selectedCard)
     {
         // Apply the card's effect to the player
-        playerStats.ApplyCardEffect(selectedCard.speedBonus, selectedCard.fireRateBonus, selectedCard.rangeBonus ,selectedCard.shotSpeedBonus);
+        playerStats.ApplyCardEffect(selectedCard.speedBonus, selectedCard.fireRateBonus, selectedCard.rangeBonus ,selectedCard.shotSpeedBonus, selectedCard.healthBonus);
 
         // Set the selected card flag to true
         hasSelectedCards = true;

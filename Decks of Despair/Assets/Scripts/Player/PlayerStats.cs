@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
         projectileStats.speed = 10f;
     }
 
-    public void ApplyCardEffect(float speedChange, float fireRateChange, float rangeChange, float shotSpeedChange)
+    public void ApplyCardEffect(float speedChange, float fireRateChange, float rangeChange, float shotSpeedChange, int healthChange)
     {
         // Modify stat changes to player
        
@@ -57,7 +57,16 @@ public class PlayerStats : MonoBehaviour
 
         playerShooting.fireRate -= fireRateChange;
 
+        // Modify health and ensure UI updates
+        maxHealth += healthChange;
+        currentHealth += healthChange;
 
+        // Prevent overhealing
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        // Update health UI to reflect changes
+        healthUI.UpdateHealthUI();
     }
 
    
