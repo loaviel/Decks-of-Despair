@@ -14,6 +14,7 @@ public class GhostAI : MonoBehaviour
     private bool canShoot = true;      // Tracks if the ghost can shoot
     private bool canTeleport = true;   // Tracks if the ghost can teleport
     private bool isTeleporting = false; // Tracks if the ghost is in teleport cooldown
+    private CapsuleCollider2D collider; // Reference to collider component
 
     void Start()
     {
@@ -24,12 +25,14 @@ public class GhostAI : MonoBehaviour
             player = playerObject.transform;
         }
 
+        collider = GetComponent<CapsuleCollider2D>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || collider.enabled == false) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 

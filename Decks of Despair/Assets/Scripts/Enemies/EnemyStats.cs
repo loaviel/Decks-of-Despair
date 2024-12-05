@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -56,8 +57,12 @@ public class EnemyStats : MonoBehaviour
     // Method to handle taking damage
     public void TakeDamage(int amount)
     {
-        // Flash red when the enemy is hit
-        StartCoroutine(FlashRed());
+        if (health != 1)
+        {
+            // Flash red when the enemy is hit only if it's not the last hit point
+            StartCoroutine(FlashRed());
+        }
+
         health -= amount;
 
         if (health <= 0)
@@ -69,9 +74,7 @@ public class EnemyStats : MonoBehaviour
     // Method to die
     protected virtual void Die()
     {
-        // Flash red when the enemy is hit
-        StartCoroutine(FlashRed());
-
+        // Code that handles death animation
         if (anim != null)
         {
             anim.SetBool("Dying", true);

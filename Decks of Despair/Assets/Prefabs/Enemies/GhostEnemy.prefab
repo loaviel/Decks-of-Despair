@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 89581848744230059}
   - component: {fileID: -7637822003418125406}
   - component: {fileID: -3842124485164524887}
+  - component: {fileID: 7654037882001342183}
   m_Layer: 0
   m_Name: GhostEnemy
   m_TagString: Enemy
@@ -184,3 +185,25 @@ MonoBehaviour:
   damage: 0
   moveSpeed: 0
   flashDuration: 0.2
+  audioManager: {fileID: 0}
+--- !u!95 &7654037882001342183
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973553034942071327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a136e4988da76394c927b03d3e2c3bb3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

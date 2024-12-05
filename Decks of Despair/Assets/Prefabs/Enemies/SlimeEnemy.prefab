@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1155960485936645161}
   - component: {fileID: 6611808975979909396}
   - component: {fileID: -2856699251262334446}
-  - component: {fileID: 6581675734922224663}
+  - component: {fileID: 4170506775832369383}
+  - component: {fileID: 3987279685949478652}
   m_Layer: 0
   m_Name: SlimeEnemy
   m_TagString: Enemy
@@ -148,8 +149,30 @@ MonoBehaviour:
   damage: 0
   moveSpeed: 0
   flashDuration: 0.2
---- !u!58 &6581675734922224663
-CircleCollider2D:
+  audioManager: {fileID: 0}
+--- !u!95 &4170506775832369383
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973553034942071327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad1a719dac8e1fb4998098e295a8c688, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &3987279685949478652
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -180,6 +203,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012811661, y: 0.32973635}
-  serializedVersion: 2
-  m_Radius: 0.52773905
+  m_Offset: {x: 0.005059004, y: 0.32229352}
+  m_Size: {x: 1.177155, y: 1.177155}
+  m_Direction: 0

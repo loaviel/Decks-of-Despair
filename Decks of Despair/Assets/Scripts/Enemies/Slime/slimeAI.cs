@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -19,6 +20,7 @@ public class SlimeAI : MonoBehaviour
     private bool isJumping = false;   // Flag to track if the slime is jumping
 
     public float airFollowSpeed = 1f; // How quickly the slime follows the shadow mid-air
+    private CapsuleCollider2D collider;
 
     void Start()
     {
@@ -30,12 +32,13 @@ public class SlimeAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         slimeCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
     {
         // Continuously follow the player
-        if (player != null && enemyStats != null && !isJumping)
+        if (player != null && enemyStats != null && !isJumping && collider.enabled != false)
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rb.velocity = direction * enemyStats.moveSpeed;
@@ -45,7 +48,7 @@ public class SlimeAI : MonoBehaviour
         }
 
         // Check if the player is within detection radius and if the slime can jump
-        if (player != null && Time.time >= lastJumpTime + jumpCooldown)
+        if (player != null && Time.time >= lastJumpTime + jumpCooldown && collider.enabled == true)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
