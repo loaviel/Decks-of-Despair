@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5c754b0e2192c49a80759f130eb00a, type: 3}
   m_Name: Range Up
   m_EditorClassIdentifier: 
-  cardImage: {fileID: 21300000, guid: 6d300392d42b5db47abf5c1699d271a1, type: 3}
+  cardImage: {fileID: 21300000, guid: f5d1213c79b6176488b9cdcd5a7daf11, type: 3}
   speedBonus: 0
   fireRateBonus: 0
   rangeBonus: 1
   shotSpeedBonus: 0
+  healthBonus: 0
