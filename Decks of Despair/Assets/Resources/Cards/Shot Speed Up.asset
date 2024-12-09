@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5c754b0e2192c49a80759f130eb00a, type: 3}
   m_Name: Shot Speed Up
   m_EditorClassIdentifier: 
-  cardImage: {fileID: 21300000, guid: db571f5f12610b04eb4d9dc32de7967c, type: 3}
+  cardImage: {fileID: 21300000, guid: 3472aff7119b3724aa21c08080b80862, type: 3}
   speedBonus: 0
   fireRateBonus: 0
   rangeBonus: 0
